@@ -12,7 +12,9 @@
     "author": "foprc",
     "license": "ISC",
     "dependencies": {
-        "commander": "^2.9.0"
+        "commander": "^2.9.0",
+        "inquirer": "^1.0.2",
+        "shelljs": "^0.6.0"
     },
     "repository": {
         "type": "git",
