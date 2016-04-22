@@ -1,2 +1,2 @@
 # starr
-A building tool for modern web app
+A building tool & generator for modern web app based on React.
