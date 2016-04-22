@@ -1,0 +1,23 @@
+{
+    "name": "Starr",
+    "version": "0.0.1",
+    "description": "A building tool and generator for modern web app based on React.",
+    "keywords": "generator, webpack, react, f2e, es6",
+    "bin": {
+        "starr": "bin/index.js"
+    },
+    "engines": {
+        "node": ">=0.12"
+    },
+    "author": "foprc",
+    "license": "ISC",
+    "dependencies": {
+        "commander": "^2.9.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/foprc/Starr.git"
+    },
+    "bugs": "git+https://github.com/foprc/Starr/issues",
+    "homepage": ""
+}
