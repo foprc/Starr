@@ -9,8 +9,7 @@ function _getStarr(){
     if (utils.isExists('starr.config.js')) {
         var config = path.resolve(CWD, 'starr.config.js');
         var starr = require(config);
-
-        return utils.extendConfig(default_starr, starr);
+        return utils.extendConfig(starr, default_starr);
     }
 
     return default_starr;

@@ -25,7 +25,7 @@ module.exports = function() {
             return true;
         }
     }).then(function(app) {
-        cp('-R', path.resolve(__dirname, '../../', 'template', 'app/'), path.resolve(CWD, app.name));
+        cp('-R', path.resolve(__dirname, '../../', 'template', 'app-redux/'), path.resolve(CWD, app.name));
         console.log(app.name, ' has been inited!');
     })
 }

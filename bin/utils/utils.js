@@ -26,7 +26,7 @@ function _extend(target, source) {
 
     if(source['template']) {
         // set template path
-        target.template.path = source.template.path ? path.resolve(CWD, target.template.path) : path.resolve(__dirname, '..', 'webpack', 'template.html');
+        target.template.path = source.template.path ? path.resolve(CWD, target.template.path) : path.resolve(__dirname, '..', 'template', 'template.html');
 
         // set template favicon
         source.template.favicon && (target.template.favicon = path.resolve(CWD, source.base, source.template.favicon));
