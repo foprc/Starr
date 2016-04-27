@@ -14,6 +14,10 @@ var menu = [{
             value: 'init'
         },
         {
+            name: 'init project with redux support',
+            value: 'initRedux'
+        },
+        {
             name: 'run project',
             value: 'start'
         }
