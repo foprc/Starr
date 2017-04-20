@@ -1,48 +1,50 @@
 #!/usr/bin/env node
+// ↑↑ make OS know that this program can run by node.js
 
-var StarrApp = require('commander'),
+// This is the entry js file
+
+let program = require('commander'),
     path = require('path'),
     fs = require('fs'),
-    starr = require('./starr/config'),
-    packages = require('../package.json'),
-    utils = require('./utils/utils'),
-    task = require('./task'),
     cli = require('./utils/cli'),
+    packages = require('../package.json'),
+    jobs = require('./utils/jobs'),
+    starr = require('./utils/config'),
     CWD = process.cwd();
 
-var _param;
+let __mode;
 
 require('shelljs/global');
 
-StarrApp.version(packages.version)
-    .option('-p, --port', 'custom server port', config.port)
-    .arguments('[param] [name]')
-    .action(function(param, name) {
-        var config = starr.getStarr();
-        _param = param;
+config = starr.getInstance();
 
-        // if (!starr.hasStarr() && param !== 'init') {
-        //     console.log('Starr can not find object!');
+program
+    .version(packages.version)
+    .option('-p, --port', 'custom server port', config.port)
+    // .option('-s, --server', 'run static server', true)
+    // .option('-w, --watch', 'run watch mode', true)
+    .arguments('[mode] [name]')
+    .action((mode, name)=>{
+        __mode = mode;
+
+        // test whether the porject is initialized
+        // if (!starr.hasStarrConfig() && mode !=='init'){
+        //     console.log('no config file \n');
         //     process.exit(1);
         // }
 
-        var params = [
-            'init',
-            'start'
-        ];
-
-        if (params.indexOf(param) === -1) {
-            console.log('Starr does not konw TuT...');
+        let modes = ['dev'];
+        if (modes.indexOf(mode) === -1) {
+            console.log('no task found \n');
+            cli.help();
         } else {
-            // clean last build
-            // rm('-rf', path.resolve(CWD, config.build));
-            console.log('Starr is running.');
-            task[param](name || StarrApp.port || StarrApp.server);
+            rm('-rf', path.resolve(CWD, config.build));
+            jobs[mode](name || program.port);
         }
     });
 
-StarrApp.parse(process.argv);
+program.parse(process.argv);
 
-if (!_param) {
+if (!__mode) {
     cli.help();
 }

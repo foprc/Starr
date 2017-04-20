@@ -36,3 +36,5 @@ dist
 .sass-cache/
 .idea/
 npm-debug.log
+
+yarn.lock

@@ -1,16 +1,5 @@
 {
-  "extends": "airbnb",
-  "rules": {
-    "semi": [2, "never"],
-		"indent": ["error", 2, {"SwitchCase": 1}]
-  },
-	"globals": {
-		"React": false,
-		"ReactDOM": false,
-		"$": false,
-		"fecha": false,
-		"_": false,
-		"echarts": false,
-		"reqwest": false,
-	}
+    "env": {
+        "es6": true
+    }
 }

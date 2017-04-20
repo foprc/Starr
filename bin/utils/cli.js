@@ -1,35 +1,14 @@
-var inquirer = require('inquirer'),
+let path = require('path'),
     fs = require('fs'),
-    path = require('path'),
-    task = require('../task'),
+    Utils = require('./utils'),
     CWD = process.cwd();
 
-var menu = [{
-    type: 'list',
-    name: 'task',
-    message: 'please choose a service: ',
-    choices: [
-        {
-            name: 'init project',
-            value: 'init'
-        },
-        {
-            name: 'init project with redux support',
-            value: 'initRedux'
-        },
-        {
-            name: 'run project',
-            value: 'start'
-        }
-    ]
-}];
-
-function _help() {
-    inquirer.prompt(menu).then(function( choice ){
-        task[choice.task]();
-    });
+function showHelp() {
+    console.log('some helps');
 }
 
+let jobs
+
 module.exports = {
-    help: _help
+    help: showHelp
 }
